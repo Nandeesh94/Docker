@@ -120,3 +120,365 @@ Approach 2:
    scp filename.tar ubuntu@172.34.42.78:/home/ubuntu
 
   docker load -i filename.tar
+
+
+
+----------------------------------------------------------------------------------------------
+History
+------
+root@ip-172-31-27-68:~/jenkins-java-project# history
+    1  apt update -y
+    2  apt upgrade -y
+    3  apt install docker -y
+    4  docker -v
+    5  docker --version
+    6  apt install docker -y
+    7  docker version
+    8  docker --version
+    9  apt remove docker wmdocker -y
+   10  sudo apt update -y
+   11  sudo curl -fsSL https://get.docker.com -o install-docker.sh
+   12  sudo sh install-docker.sh
+   13  sudo apt update -y
+   14  sudo apt install docker.io -y
+   15  sudo apt update -y
+   16  sudo curl -fsSL https://get.docker.com | /bin/bash
+   17  sudo apt update -y
+   18  sudo curl -fsSL https://get.docker.com | /bin/bash
+   19  docker -v
+   20  ps -ef | grep -i "dockerd"
+   21  systemctl status docker
+   22  usermod -aG docker ubuntu
+   23  docker ps
+   24  docker ps -a
+   25  docker images
+   26  docker pull nginx/nginx-ingress:edge-alpine
+   27  docker images
+   28  du -sh
+   29  ll
+   30  docker
+   31  docker images
+   32  docker run -d -p 80:80 --name cont1 nandeesh:latest
+   33  docker run -d -p 80:80 --name cont1 nandeeshnginx
+   34  docker images
+   35  docker run -d -p 80:81 --name cont1 nginx/nginx-ingress:latest
+   36  docker image
+   37  docker images
+   38  docker ps
+   39  docker run -d -p 80:82 --name cont2 nginx/nginx-ingress
+   40  docker ps
+   41  docker ps -a
+   42  docker start cont1
+   43  docker ps
+   44  docker ps -a
+   45  docker start cont1
+   46  docker ps
+   47  docker start 804f15e4d6c4
+   48  docker ps
+   49  docker logs cont1
+   50  docker images
+   51  docker aq
+   52  docker rmi $(docker images rmi)
+   53  docker rmi
+   54  docker rmi -f $(docker images rmi)
+   55  docker rmi -f$(docker rmi -q)
+   56  docker rmi -f $(docker rmi -q)
+   57  docker rmi -f $(docker images -q)
+   58  docker images
+   59  docker pull tomcat:9.0.111-jdk21-corretto
+   60  docker images
+   61  du -sh
+   62  docker run -d -p 8080:8081 --name cont3 tomcat
+   63  docker images
+   64  docker run -d -p 8080:8082 --name cont3 tomcat:latest .
+   65  docker run -d -p 8080:8082 --name cont3 tomcat:latest
+   66  docker run -d -p 8080:8082 --name cont4 tomcat:latest .
+   67  docker ps
+   68  docker ps -a
+   69  docker ps
+   70  docker start 2472832f322f
+   71  docker images
+   72  docker run -d -p 8082:8080 --name cont5 tomcat
+   73  docker ps
+   74  docker run -d -p 8085:8080 --name cont6 tomcat
+   75  docker ps
+   76  docker ps -a
+   77  docker start 804f15e4d6c4
+   78  docker ps -a
+   79  docker rmi 804f15e4d6c4
+   80  docker stop cont6
+   81  docker ps -a
+   82  docker start cont6
+   83  docker ps -a
+   84  docker kill cont6
+   85  docker ps -a
+   86  docker start cont6
+   87  docker logs -f cont6
+   88  docker images
+   89  docker ps -a
+   90  docker
+   91  docker ps -a
+   92  apt install maven -y
+   93  git clone https://github.com/Nandeesh94/jenkins-java-project.git
+   94  ll
+   95  cd jenkins-java-project/
+   96  ll
+   97  mvn clean package
+   98  java --version
+   99  ll
+  100  vi pom.xml
+  101  mvn clean package
+  102  ll
+  103  java --version
+  104  vim pom.xml
+  105  mvn clean package
+  106  ll
+  107  cd target/
+  108  ll
+  109  docker images
+  110  cd --
+  111  vim Dockerfile
+  112  docker build -t tomcat:9.0.111 .
+  113  cat Dockerfile
+  114  ll
+  115  cd jenkins-java-project/
+  116  ll
+  117  cd target/
+  118  ll
+  119  cd ../
+  120  docker build -t tomcat:9.0.112 .
+  121  docker build -t tomcat:9.0.111 .
+  122  docker build -t netflix-tomcat:latest .
+  123  docker images
+  124  docker build -t nandu90199/netflix-clone
+  125  docker build -t nandu90199/netflix-clone:9.0.111
+  126  vim Dockerfile
+  127  docker build -t nandu90199/netflix-clone:9.0.111 .
+  128  docker images
+  129  ll
+  130  cd target/
+  131  ll
+  132  docker images
+  133  ls -lrth
+  134  ls -lrtha
+  135  docker history nandu90199/netflix-clone:9.0.111
+  136  docker images
+  137  docker history tomcat
+  138  docker images
+  139  docker run -d -p 8085:8080 --name cont7 nandu90199/netflix-clone:9.0.111
+  140  docker run -d -p 8086:8080 --name cont8 nandu90199/netflix-clone:9.0.111
+  141  docker ps
+  142  docker exec cont8
+  143  docker ps
+  144  docker stop cont8
+  145  docker start cont8
+  146  docker ps
+  147  docker images
+  148  docker push nandu90199/netflix-clone:9.0.111
+  149  docker login -u nandu90199
+  150  docker push nandu90199/netflix-clone:9.0.111
+  151  ll
+  152  cd ../
+  153  ll
+  154  docker images
+  155  docker build -t nandu90199/netflix-clone:9.0.112
+  156  docker build -t nandu90199/netflix-clone:9.0.112 .
+  157  ll
+  158  docker images
+  159  docker run -d -t 8087:8080 --name cont9 nandu90199/netflix-clone:9.0.112
+  160  docker build -t nandu90199/netflix-clone:9.0.113 .
+  161  docker images
+  162  docker push nandu90199/netflix-clone:9.0.112
+  163  docker push nandu90199/netflix-clone:9.0.113
+  164  docker rmi -f $(docker rmi -q)
+  165  docker rm -f $(docker images -q)
+  166  docker images rm -f $(docker images -q)
+  167  docker rm -f $(docker images -aq)
+  168  docker rmi -f $(docker images -aq)
+  169  docker ps
+  170  docker stop $(docker ps -q)
+  171  docker ps
+  172  docker ps -a
+  173  docker rmi -f $(docker images -q)
+  174  docker images
+  175  docker ps -a
+  176  docker rm -f $(docker ps -q)
+  177  docker rm -f $(docker ps -aq)
+  178  docker ps -a
+  179  docker images
+  180  docker run -d -t 8086:8080 --name cont1 nandu90199/netflix-clone:9.0.113
+  181  docker run -d -p 8086:8080 --name cont1 nandu90199/netflix-clone:9.0.113
+  182  docker images
+  183  docker ps
+  184  docker pull tomcat:9.0.111-jdk21-corretto
+  185  docker images
+  186  docker tag tomcat:9.0.111-jdk21-corretto nandu901996/nandeesh-tomcat:9.0.111
+  187  docker images
+  188  docker push nandu901996/nandeesh-tomcat:9.0.111
+  189  docker images
+  190  docker rmi -f nandu901996/nandeesh-tomcat
+  191  docker rm -f nandu901996/nandeesh-tomcat:9.0.111
+  192  docker images
+  193  docker rmi -f nandu901996/nandeesh-tomcat:9.0.111
+  194  docker images
+  195  docker tag tomcat:9.0.111-jdk21-corretto nandu90199/nandeesh-tomcat:9.0.111
+  196  docker images
+  197  docker push nandu90199/nandeesh-tomcat:9.0.111
+  198  docker images
+  199  docker rm -f $(docker images -q)
+  200  docker rmi -f $(docker images -q)
+  201  docker images
+  202  docker ps
+  203  docker stop cont1
+  204  docker rmi -f $(docker images -q)
+  205  docker images
+  206  docker ps
+  207  docker run -d -p 8086:8080 --name cont1 nandu90199/nandeesh-tomcat:9.0.111
+  208  docker images
+  209  docker ps
+  210  docker run --name cont2 nandu90199/nandeesh-tomcat:9.0.111
+  211  docker ps
+  212  dockerimages
+  213  docker images
+  214  docker run -d -p --name cont2 nandu90199/nandeesh-tomcat:9.0.111
+  215  docker run -d -p 8086:8080 --name cont3  nandu90199/nandeesh-tomcat
+  216  docker images
+  217  docker run -d -p 8086:8080 --name cont4 nandu90199/nandeesh-tomcat:9.0.111
+  218  docker ps
+  219  docker stop $(docker ps -q)
+  220  docker ps
+  221  docker images
+  222  docker save -o image1.tar nandu90199/nandeesh-tomcat
+  223  ll
+  224  docker images
+  225  docker rmi -f $(docker images -q)
+  226  docker images
+  227  ll
+  228  docker load -i image1.tar
+  229  docker images
+  230  docker
+  231  docker search ubuntu
+  232  docker
+  233  docker info
+  234  docker logout
+  235  docker --version
+  236  docker images
+  237  docker inspect nandu90199/nandeesh-tomcat
+  238  mvn --version
+  239  docker images
+  240  docker run -d -p 8086:8080 --name cont4 nandu90199/nandeesh-tomcat
+  241  docker run -d -p 8086:8080 --name cont5 nandu90199/nandeesh-tomcat:9.0.111
+  242  docker ps
+  243  docker commit 5dc409360946 nandeeshimage
+  244  docker ps
+  245  docker images
+  246  docker run -d -p 8086:8080 --name cont6 nandeeshimage:latest .
+  247  docker run -d -p 8086:8080 --name cont6 nandeeshimage:latest
+  248* docker run -d -p 8086:8080 --name cont7 nandeeshimage:latest docker
+  249  docker run -d -p 8085:8080 --name cont8 nandeeshimage:latest
+  250  docker ps
+  251  docker exec cont8
+  252  docker ps
+  253  docker attach cont8
+  254  docker ps
+  255  docker ps -a
+  256  docker start cont8
+  257  docker ps
+  258  docker attach cont8
+  259  docker start cont8
+  260  docker ps
+  261  docker exec -it cont8
+  262  docker exec -it cont8 bash
+  263  docker ps
+  264  docker commit cont8
+  265  docker commit cont8 nandu:9.0.112
+  266  docker images
+  267  docker run -d -p 8082:8080 --name cont9 nandu:9.0.112
+  268  docker ps
+  269  docker exec -it cont9 bash
+  270  docker images
+  271  docker run --name cont10 nandu:9.0.112
+  272  docker ps -a
+  273  ll
+  274  docker load -i image1.tar
+  275  docker images
+  276  ll
+  277  cd src/
+  278  ll
+  279  cd main/
+  280  ll
+  281  cd webapp/
+  282  ll
+  283  vim index.jsp
+  284  cd ../../../
+  285  ll
+  286  docker images
+  287  docker ps
+  288  mvn clean package
+  289  docker images
+  290  ll
+  291  docker build -t nandu:9.0.112 .
+  292  docker images
+  293  docker build -t nandu:9.0.113 .
+  294  docker images
+  295  docker ps
+  296  docker rm -f $(docker stop -q)
+  297  docker stop $(docker pa -q)
+  298  docker stop $(docker ps -q)
+  299  docker ps
+  300  docker ps -a
+  301  docker rm -f $(docker ps -q)
+  302  docker rm -f $(docker ps -aq)
+  303  docker ps -a
+  304  docker ps
+  305  docker images
+  306  docker run -d -p 8082:8080 --name cont1 nandu:9.0.113
+  307  docker ps
+  308  docker rename cont1 cont2
+  309  docker ps
+  310  docker rename cont2 cont1
+  311  docker ps
+  312  docker run -d -p 8085:8080 --name cont2 nandu:9.0.113
+  313  docker ps
+  314  docker create --name cont3 nandu:9.0.113
+  315  docker ps
+  316  docker ps -a
+  317  docker stop cont3
+  318  docker ps -a
+  319  docker ps --filter status="exited" -q
+  320  docker ps --filter status="created" -q
+  321  docker ps --filter status="up" -q
+  322  docker ps --filter status="running" -q
+  323  docker ps --filter status="running" -aq
+  324  docker ps --filter status="all" -aq
+  325  docker rmi -f $(docker ps --filter status="created" -aq)
+  326  docker rm -f $(docker ps --filter status="created" -aq)
+  327  docker ps
+  328  docker ps -a
+  329  docker stop $(docker ps -aq)
+  330  docker ps -aq
+  331  docker ps -a
+  332  docker container prune
+  333  docker ps -a
+  334  docker run -d -p 8082:8080 --name cont1 nandu:9.0.113
+  335  docker ps
+  336  docker inspect cont1
+  337  docker inspect cont1 | grep -i "start"
+  338  docker inspect cont1 | grep -i "started"
+  339  docker inspect cont1 | grep -i "host"
+  340  docker inspect cont1 | grep -i "image"
+  341  docker inspect cont1 | grep -i "cont"
+  342  docker inspect cont1 | grep -i "status"
+  343  docker inspect cont1 | grep -i "dangling"
+  344  docker images
+  345  docker images -f dangling=true
+  346  docker images -f dangling=false
+  347  docker images -f dangling=true -q
+  348  docker images -f dangling=true -aq
+  349  docker rmi -f $(docker images -f dangling=true -q)
+  350  docker images
+  351  History
+  352  history
+root@ip-172-31-27-68:~/jenkins-java-project#
+
+
