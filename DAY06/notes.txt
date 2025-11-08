@@ -511,3 +511,283 @@ COPY abc.py /opt/abc.py [or] RUN cp abc.py /opt/abc.py
 --> expose indicates which port is opened/used in the image.
 
   EX: EXPOSE 8080
+
+
+
+
+
+===================================================================================================================
+history
+ 300  docker ps -a
+  301  docker rm -f $(docker ps -q)
+  302  docker rm -f $(docker ps -aq)
+  303  docker ps -a
+  304  docker ps
+  305  docker images
+  306  docker run -d -p 8082:8080 --name cont1 nandu:9.0.113
+  307  docker ps
+  308  docker rename cont1 cont2
+  309  docker ps
+  310  docker rename cont2 cont1
+  311  docker ps
+  312  docker run -d -p 8085:8080 --name cont2 nandu:9.0.113
+  313  docker ps
+  314  docker create --name cont3 nandu:9.0.113
+  315  docker ps
+  316  docker ps -a
+  317  docker stop cont3
+  318  docker ps -a
+  319  docker ps --filter status="exited" -q
+  320  docker ps --filter status="created" -q
+  321  docker ps --filter status="up" -q
+  322  docker ps --filter status="running" -q
+  323  docker ps --filter status="running" -aq
+  324  docker ps --filter status="all" -aq
+  325  docker rmi -f $(docker ps --filter status="created" -aq)
+  326  docker rm -f $(docker ps --filter status="created" -aq)
+  327  docker ps
+  328  docker ps -a
+  329  docker stop $(docker ps -aq)
+  330  docker ps -aq
+  331  docker ps -a
+  332  docker container prune
+  333  docker ps -a
+  334  docker run -d -p 8082:8080 --name cont1 nandu:9.0.113
+  335  docker ps
+  336  docker inspect cont1
+  337  docker inspect cont1 | grep -i "start"
+  338  docker inspect cont1 | grep -i "started"
+  339  docker inspect cont1 | grep -i "host"
+  340  docker inspect cont1 | grep -i "image"
+  341  docker inspect cont1 | grep -i "cont"
+  342  docker inspect cont1 | grep -i "status"
+  343  docker inspect cont1 | grep -i "dangling"
+  344  docker images
+  345  docker images -f dangling=true
+  346  docker images -f dangling=false
+  347  docker images -f dangling=true -q
+  348  docker images -f dangling=true -aq
+  349  docker rmi -f $(docker images -f dangling=true -q)
+  350  docker images
+  351  History
+  352  history
+  353  docker images
+  354  docker tag nandeeshimage:latest nandeesh:9.0.114
+  355  docker images
+  356  docker ps
+  357  docker pause cont1
+  358  docker ps
+  359  docker unpaused cont1
+  360  docker unpause cont1
+  361  docker ps
+  362  docker pause cont1
+  363  docker ps
+  364  docker unpause cont1
+  365  docker ps
+  366  docker pause cont1
+  367  docker ps
+  368  docker unpause $(docker ps -aq)
+  369  docker ps
+  370  docker images
+  371  docker ps
+  372  docker exec -it cont1 /bin/bash
+  373  cd -
+  374  ll
+  375  cd jenkins-java-project/
+  376  ll
+  377  vim Dockerfile
+  378  cat Dockerfile
+  379  cd --
+  380  docker ps
+  381  docker exec -it cont1 /bin/bash
+  382  cd jenkins-java-project/
+  383  ll
+  384  docker ps
+  385  docker exec cont1 ls
+  386  docker exec cont1 ls -lrtha
+  387  docker exec cont1 ls -lrtha /usr/local/tomcat/webapps
+  388  docker top cont1
+  389  docker stats cont1
+  390  history
+  391  ll
+  392  cd jenkins-java-project/
+  393  ll
+  394  vi Dockerfile
+  395  docker images
+  396  docker build nandu:9.0.112 .
+  397  docker build -t nandu:9.0.112 .
+  398  vim Dockerfile
+  399  docker images
+  400  docker build -t nandu:9.0.115 .
+  401  docker images
+  402  vim Dockerfile
+  403  docker build -t nandu:9.0.116 .
+  404  vim Dockerfile
+  405  docker build -t nandu:9.0.117 .
+  406  docker images
+  407  docker run nandu:9.0.117
+  408  docker ps -a
+  409  vim Dockerfile
+  410  docker run nandu:9.0.117
+  411  docker ps -a
+  412  docker build -t nandu:9.0.118 .
+  413  docker images
+  414  docker run nandu:9.0.118
+  415  docker run nandu:9.0.118 date
+  416  docker rmi -f $(docker images -aq)
+  417  docker images
+  418  docker ps
+  419  docker ps -a
+  420  docker rm -f $(docker ps -a)
+  421  docker rm -f $(docker ps -aq)
+  422  docker ps -aq
+  423  docker ps -a
+  424  docker images
+  425  docker pull tomcat
+  426  docker images
+  427  docker imagdes
+  428  docker images
+  429  docker run tomcat:latest uname
+  430  docker history f29228ec2c11
+  431  ll
+  432  ls -lrtha
+  433  cp Dockerfile Dockerfile_bkp
+  434  ll
+  435  rm Dockerfile_bkp
+  436  ll
+  437  cd jenkins-java-project/
+  438  ll
+  439  vim Dockerfile
+  440  docker images
+  441  docker build -t image1:latest .
+  442  cat Dockerfile
+  443  vim Dockerfile
+  444  docker images
+  445  docker build -t image1 .
+  446  vim Dockerfile
+  447  cat Dockerfile
+  448  vim Dockerfile
+  449  docker build -t image1 .
+  450  cat Dockerfile
+  451  vim Dockerfile
+  452  docker build -t image1 .
+  453  docker images
+  454  docker history image1:latest
+  455  ll
+  456  vim jenkins.sh
+  457  vim Dockerfile
+  458  docker images
+  459  docker build -t imgage2 .
+  460  vim Dockerfile
+  461  docker images
+  462  docker build image3 .
+  463  docker build -t image3 .
+  464  vi Dockerfile
+  465  docker build -t image4 .
+  466  docker run -d -p 8081:8080 --name cont1 image3
+  467  docker ps
+  468  docker ps -a
+  469  ll
+  470  vim Dockerfile
+  471  docker images
+  472  docker build -t image5 .
+  473  docker run -d -p 8082:8080 --name cont2 image5
+  474  cat Dockerfile
+  475  ll
+  476  pwd
+  477  chmod 755 /root/jenkins-java-project/jenkins.sh
+  478  cd jenkins-java-project/
+  479  ll
+  480  vim Dockerfile
+  481  docker images
+  482  docker build -t image6:latest .
+  483  cat Dockerfile
+  484  ll
+  485  docker ps -a
+  486  docker images
+  487  docker run -d -p 8083:8080 --name cont7 image6:latest
+  488  docker logs cont7
+  489  cat jenkins.sh
+  490  docker logs cont7 | head -n 50
+  491  vim Dockerfile
+  492  cd jenkins-java-project/
+  493  ll
+  494  vim Dockerfile
+  495  docker images
+  496  docker build -t image7 .
+  497  docker run -d -p 8084:8080 --name cont3 image7:latest
+  498  cat Dockerfile
+  499  vim Dockerfile
+  500  docker images
+  501  docker build -t image8:latest .
+  502  docker run -d -p 8085:8080 --name cont5 image8:latest
+  503  cat Dockerfile
+  504  vim Dockerfile
+  505  docker build -t image9:latest .
+  506  cat Dockerfile
+  507  apt-get install iputils-ping
+  508  docker run image8
+  509  cat Dockerfile
+  510  vim Dockerfile
+  511  docker build -t image9 .
+  512  docker run image9:latest
+  513  vim Dockerfile
+  514  docker build -t image10:latest .
+  515  docker run image10:latest
+  516  vim Dockerfile
+  517  docker history image10
+  518  docker images
+  519  docker images prune -f --filter label="tomcat" -a
+  520  docker images prune -a --filter label="tomcat" -f
+  521  docker images prune -a --filter label="tomcat"
+  522  docker images
+  523  docker image prune -a --filter label="tomcat"
+  524  docker images
+  525  docker image prune -a --filter label="tomcat" -f
+  526  docker images
+  527  docker ps -a
+  528  docker rmi -f $(docker images -a | grep -v 'tomcat' | grep -v 'REPOSITORY' | awk '{print $3}' )
+  529  docker images
+  530  docker ps -a
+  531  docker rm -f $(docker ps -aq | grep -v 'cont1' | grep -v 'CONTAINER ID' | awk '{print $3}')
+  532  docker rm  -f $(docker ps -aq | grep -v $(docker ps -aqf "name=cont1"))
+  533  docker ps -a
+  534  docker build --no-cache -t image1 .
+  535  vim Dockerfile
+  536  vim Nandeeshfile
+  537  vim Nandeeshfile
+  538  docker images
+  539  vim Nandeeshfile
+  540  docker build -t -f Nandeeshfile --build-arg baseImageTag=12.0
+  541  cat Nandeeshfile
+  542  vim Nandeeshfile
+  543  docker build -f Nandeeshfile -t image2:latest --build-arg baseImageTag=12.0 .
+  544  cat Nandeeshfile
+  545  docker images
+  546  docker inspect image2 | grep -i "env"
+  547  docker inspect image2 | grep -i "var"
+  548  vim Nandeeshfile
+  549  docker build -t image3 .
+  550  docker inspect image3 | grep -i "ENV"
+  551  docker inspect image3
+  552  vim Nandeeshfile
+  553  docker images
+  554  docker build -f Nandeeshfile -t image4 .
+  555  cd /opt/
+  556  ll
+  557  date
+  558  git -v
+  559  git --version
+  560  cd
+  561  git -version
+  562  git --version
+  563  ll
+  564  cd jenkins-java-project/
+  565  ll
+  566  vim Nandeeshfile
+  567  docker build -f Nandeeshfile -t image5 .
+  568  docker run -d -p 8086:9090 --name cont3 image5:latest
+  569  docker ps -a
+  570  history
+root@ip-172-31-27-68:~/jenkins-java-project#
+
