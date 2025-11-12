@@ -247,7 +247,26 @@ WORKDIR /usr/local/tomcat/webapps
 RUN cp /app/target/maven-web-app*.war /usr/local/tomcat/webapps/maven-web-app.war
 
 
+-------------------------------------------------------------------------------------------------------------------
 
+
+Multi stage Docker file:
+
+FROM maven:3.9.11-eclipse-temurin-25 AS builder
+WORKDIR /app
+COPY . .
+RUN mvn clean package
+
+FROM tomcat:latest
+LABEL MAINTAINER=nandeesh email=nandeesh@gmail.com
+WORKDIR /usr/local/tomcat/webapps
+COPY --from=builder /app/target/netflix-clone.war /usr/local/tomcat/webapps/netflix-clone.war
+EXPOSE 8080
+CMD ["catalina.sh", "run"]
+
+
+
+--------------------------------------------------------------------------------------------------------------------
 
 
 
