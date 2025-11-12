@@ -159,6 +159,64 @@ EXPOSE 8080
 CMD ["catalina.sh", "run"]
 
 --------------
+--------------------------------------------------------------------------------------------------------------
+
+Restrict the freshers to delete or modify anything .
+Run as a noon root user for best practices.
+
+
+ubuntu@ip-172-31-27-68:~$ cat Dockerfile
+# Start from Tomcat base image
+FROM tomcat:latest
+
+# Create a non-root user and group
+RUN groupadd -r myusergroup && \
+    useradd -r -m -g myusergroup -s /bin/bash nandeesh
+
+LABEL maintainer="Nandeesh" email="nandeesh@gmail.com"
+
+# Install minimal tools
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        git \
+        maven \
+        iputils-ping \
+        e2fsprogs && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Secure Tomcat directory — owned by root, no write for others
+RUN chown -R root:root /usr/local/tomcat && \
+    chmod -R 755 /usr/local/tomcat
+
+# Create a shared directory where all users can write, but cannot delete others' files
+RUN mkdir -p /shared && \
+    chmod 1777 /shared && \
+    echo "✅ /shared directory: users can write but not delete others' files"
+
+# Copy your web app (WAR)
+#COPY target/netflix-clone.war /usr/local/tomcat/webapps/netflix-clone.war
+
+# Protect the WAR file so no one (even non-root) can delete or modify it
+#RUN chown root:root /usr/local/tomcat/webapps/netflix-clone.war && \
+#    chmod 444 /usr/local/tomcat/webapps/netflix-clone.war && \
+#    echo "✅ Protected WAR file with read-only permissions"
+
+# Optional: Make it truly immutable (cannot be deleted, even by root inside container)
+# NOTE: 'chattr' works only if the filesystem supports it (e.g., ext4)
+#RUN chattr +i /usr/local/tomcat/webapps/netflix-clone.war || true
+
+# Switch to non-root user
+USER nandeesh
+
+# Expose Tomcat
+EXPOSE 8080
+
+# Start Tomcat as non-root user
+CMD ["catalina.sh", "run"]
+
+ubuntu@ip-172-31-27-68:~$
+
+--------------------------------------------------------------------------------------------------------------
 
 FROM test3:latest
 
